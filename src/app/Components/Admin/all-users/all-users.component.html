@@ -1,0 +1,108 @@
+<div class="d-flex">
+  <div class="d-flex flex-column flex-shrink-0 bg-light" style="width: 4.5rem">
+    <a
+      href="/"
+      class="d-block p-3 link-dark text-decoration-none"
+      title="Logo"
+      data-bs-toggle="tooltip"
+      data-bs-placement="right"
+      data-bs-original-title="Icon-only"
+    >
+      <img src="assets/mainlogo.png" width="40" alt="" />
+    </a>
+    <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
+      <li class="nav-item">
+        <a
+          routerLink="/Admin/Admin-Panel"
+          routerLinkActive="active"
+          class="nav-link py-3 border-bottom"
+          aria-current="page"
+          title="main panel"
+          data-bs-toggle="tooltip"
+          data-bs-placement="right"
+          data-bs-original-title="Home"
+        >
+          <i class="bi bi-house"></i>
+        </a>
+      </li>
+      <li>
+        <a
+          routerLink="/Admin/Dashboard"
+          class="nav-link py-3 border-bottom"
+          title="dashboard"
+          data-bs-toggle="tooltip"
+          data-bs-placement="right"
+          data-bs-original-title="Dashboard"
+          routerLinkActive="active"
+        >
+          <i class="bi bi-speedometer2"></i>
+        </a>
+      </li>
+      <li>
+        <a
+          routerLinkActive="active"
+          class="nav-link py-3 border-bottom"
+          title="orders"
+          data-bs-toggle="tooltip"
+          data-bs-placement="right"
+          data-bs-original-title="Orders"
+        >
+          <i class="bi bi-table"></i>
+        </a>
+      </li>
+      <li>
+        <a
+          routerLink="/Admin/Admin-Product"
+          routerLinkActive="active"
+          class="nav-link py-3 border-bottom"
+          title="Product"
+          data-bs-toggle="tooltip"
+          data-bs-placement="right"
+          data-bs-original-title="Products"
+        >
+          <i class="bi bi-grid"></i>
+        </a>
+      </li>
+      <li>
+        <a
+          routerLink="/Admin/All-Users"
+          routerLinkActive="active"
+          class="nav-link py-3 border-bottom"
+          title="Coustmers"
+          data-bs-toggle="tooltip"
+          data-bs-placement="right"
+          data-bs-original-title="Customers"
+        >
+          <i class="bi bi-person-circle"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="p-3 col">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="text-center">id</th>
+          <th>personal name</th>
+          <th>email</th>
+          <th>admin</th>
+          <th class="text-center">remove</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of UsersEmails; let i = index">
+          <td class="text-center">{{ user.id }}</td>
+          <td>{{ user.firstName + " " + user.lastName }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.admin }}</td>
+          <td class="text-center">
+            <a class="btn btn-outline-danger" (click)="removeUser(user.id, i)"
+              ><i class="bi bi-trash"></i
+            ></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

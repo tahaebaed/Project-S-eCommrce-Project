@@ -1,0 +1,99 @@
+<form
+  #signUpForm="ngForm"
+  class="col-6 mx-auto"
+  (ngSubmit)="emailCheck(newUser.email, newUser)"
+>
+  <div class="form-group">
+    <label for="FirstName">First Name</label>
+    <input
+      #firstName="ngModel"
+      type="text"
+      class="form-control"
+      name="FirstName"
+      id="FirstName"
+      aria-describedby="FirstNameHelped"
+      placeholder="Please Enter Your First Name"
+      [class.is-valid]="firstName.valid"
+      [class.is-invalid]="!firstName.valid"
+      [(ngModel)]="newUser.firstName"
+      required
+    />
+    <div
+      [hidden]="firstName.valid || firstName.pristine"
+      class="alert alert-danger"
+    >
+      Name is required
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="LastName">Last Name</label>
+    <input
+      #lastName="ngModel"
+      type="text"
+      class="form-control"
+      name="LastName"
+      id="LastName"
+      aria-describedby="LastNameHelpId"
+      placeholder="Please Enter Your Last Name"
+      [(ngModel)]="newUser.lastName"
+      [class.is-valid]="lastName.valid"
+      [class.is-invalid]="!lastName.valid"
+      required
+    />
+    <div
+      [hidden]="lastName.valid || lastName.pristine"
+      class="alert alert-danger"
+    >
+      Name is required
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="Email">Email</label>
+    <input
+      #email="ngModel"
+      type="email"
+      class="form-control"
+      name="Email"
+      id="Email"
+      aria-describedby="emailHelpId"
+      placeholder="Please Enter Your Email"
+      [class.is-valid]="email.valid"
+      [class.is-invalid]="!email.valid || !email.touched"
+      [(ngModel)]="newUser.email"
+      required
+    />
+    <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+      email is required
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="Passwor">Password</label>
+    <input
+      #pw="ngModel"
+      type="password"
+      class="form-control"
+      name="Password"
+      id="Password"
+      [minlength]="8"
+      aria-describedby="emailHelpId"
+      placeholder="Please Enter Your Password"
+      [class.is-valid]="pw.valid"
+      [class.is-invalid]="!pw.valid"
+      [(ngModel)]="newUser.password"
+      required
+    />
+    <div [hidden]="pw.valid || pw.untouched" class="alert alert-danger">
+      Pawssword Must be more than 8 chracters
+    </div>
+    <div class="text-center">
+      <button
+        class="btn btn-primary mt-3 col-5"
+        [class.disabled]="!signUpForm.valid"
+        type="submit"
+      >
+        Sign Up
+      </button>
+      <p>Already have account, <a routerLink="/Login"> login </a></p>
+    </div>
+  </div>
+</form>

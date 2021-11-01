@@ -1,0 +1,46 @@
+<form class="form-signin d-flex flex-column Login__form p-3">
+  <img
+    class="mb-4 align-self-center text-center"
+    src="assets/mainlogo.png"
+    alt=""
+    width="200"
+  />
+  <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
+  <div class="form-floating">
+    <input
+      type="email"
+      class="form-control mb-3"
+      id="floatingInput"
+      placeholder="name@example.com"
+      #userEmail
+    />
+    <label for="floatingInput">Email address</label>
+  </div>
+  <div class="form-floating">
+    <input
+      type="password"
+      class="form-control mb-3"
+      id="floatingPassword"
+      placeholder="Password"
+      #pw
+    />
+    <label for="floatingPassword">Password</label>
+  </div>
+
+  <div class="checkbox mb-3">
+    <label> <input type="checkbox" value="remember-me" /> Remember me </label>
+  </div>
+  <div class="text-center">
+    <button
+      class="w-100 btn btn-lg btn-primary col-6 m-3"
+      type="submit"
+      (click)="login(userEmail.value, pw.value)"
+    >
+      Sign in
+    </button>
+
+    <P>don't have account <a class="link" (click)="signUp()"> signup</a></P>
+  </div>
+  <p class="mt-5 mb-3 text-muted">© 2020–2021</p>
+</form>

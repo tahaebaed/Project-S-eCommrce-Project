@@ -1,0 +1,171 @@
+<div class="container">
+  <div class="form__details">
+    <h2 class="mt-3">Edit Product details</h2>
+    <div [hidden]="submitted">
+      <form class="row" #prodForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="col-5">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              required
+              [(ngModel)]="EditProduct.name"
+              name="name"
+              #name="ngModel"
+            />
+            <div
+              [hidden]="name.valid || name.pristine"
+              class="alert alert-danger"
+            >
+              Name is required
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="price">Price</label>
+            <input
+              type="number"
+              #price="ngModel"
+              class="form-control"
+              id="price"
+              min="1"
+              name="price"
+              [class.is-valid]="price.valid"
+              [class.is-invalid]="!price.valid"
+              [(ngModel)]="EditProduct.price"
+              required
+            />
+            <div
+              [hidden]="price.valid || price.pristine"
+              class="alert alert-danger"
+            >
+              Price should be number
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="gategoryId">category id</label>
+            <input
+              type="number"
+              #ctgid="ngModel"
+              class="form-control"
+              id="price"
+              min="1"
+              name="gategoryId"
+              [class.is-valid]="ctgid.valid"
+              [class.is-invalid]="!ctgid.valid"
+              [(ngModel)]="EditProduct.categoryid.id"
+              required
+            />
+            <div
+              [hidden]="price.valid || price.pristine"
+              class="alert alert-danger"
+            >
+              please enter a vlaid id
+            </div>
+          </div>
+        </div>
+        <div class="col-5">
+          <div class="form-group">
+            <label for="gategoryName">category name</label>
+            <input
+              type="text"
+              #ctgName="ngModel"
+              class="form-control"
+              id="gategoryName"
+              name="gategoryName"
+              [class.is-valid]="ctgName.valid"
+              [class.is-invalid]="!ctgName.valid"
+              [(ngModel)]="EditProduct.categoryid.name"
+              required
+            />
+            <div
+              [hidden]="price.valid || price.pristine"
+              class="alert alert-danger"
+            >
+              please enter a vlaid name
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="price">Product Image</label>
+            <input
+              type="url"
+              #img="ngModel"
+              class="form-control"
+              id="image"
+              name="image"
+              [class.is-valid]="img.valid"
+              [(ngModel)]="EditProduct.img"
+              required
+            />
+            <div
+              [hidden]="price.valid || price.pristine"
+              class="alert alert-danger"
+            >
+              this url is not valid
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="quantity">Quantity</label>
+            <input
+              type="number"
+              #quantity="ngModel"
+              class="form-control"
+              min="1"
+              id="quantity"
+              name="quantity"
+              [(ngModel)]="EditProduct.quantity"
+              required
+            />
+            <div
+              [hidden]="quantity.valid || quantity.pristine"
+              class="alert alert-danger"
+            >
+              Quantity should be number
+            </div>
+          </div>
+        </div>
+
+        <button
+          type="submit"
+          style="background-color: #591b3f; color: white"
+          class="btn btn-default col-3 ms-3 mb-3"
+          [disabled]="prodForm.invalid"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+
+    <div [hidden]="!submitted">
+      <h2>Are You Sure You want to Confirm the updates</h2>
+
+      <div [hidden]="saved">
+        <button
+          class="btn btn-default"
+          style="background-color: #591b3f; color: white"
+          (click)="submitted = false"
+        >
+          Edit
+        </button>
+        <button
+          class="btn btn-default"
+          style="background-color: #591b3f; color: white"
+          (click)="editProduct()"
+        >
+          save
+        </button>
+      </div>
+      <div [hidden]="!saved">
+        <h2 *ngIf="status === '201'" style="text-align: center; color: #5cb85c">
+          Edited Product Inserted...
+        </h2>
+        <h2 *ngIf="status === '500'" style="text-align: center; color: black">
+          Edited Product Insertion Failed...
+        </h2>
+      </div>
+    </div>
+  </div>
+</div>

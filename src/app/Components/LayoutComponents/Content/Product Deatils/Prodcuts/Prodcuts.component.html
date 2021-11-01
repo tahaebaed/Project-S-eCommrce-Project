@@ -1,0 +1,91 @@
+<div
+  class="container-fluid row align-itmes-center justify-content-center mx-auto"
+>
+  <div
+    class="col-2 d-flex flex-column align-itmes-center p-2 w-50"
+    style="background: rgba(181, 179, 179, 0.152); height: 300px"
+  >
+    <p class="fs-4 text-primary border-bottom py-2">Category</p>
+    <div class="text-start ms-4">
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="flexRadioDefault"
+          id="flexRadioDefault1"
+        />
+        <label class="form-check-label" for="flexRadioDefault1">
+          mobiles
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="flexRadioDefault"
+          id="flexRadioDefault2"
+        />
+        <label class="form-check-label" for="flexRadioDefault2">
+          LabPtop
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="flexRadioDefault"
+          id="flexRadioDefault2"
+        />
+        <label class="form-check-label" for="flexRadioDefault2"> Tablet </label>
+      </div>
+    </div>
+  </div>
+  <div class="col-10">
+    <div class="container-fluid mx-5 my-0">
+      <div
+        class="
+          d-flex
+          flex-wrap
+          align-items-start
+          justify-content-start
+          align-content-between
+          mx-auto
+        "
+      >
+        <div
+          class="card col-3 m-4 p-0"
+          style="width: 14rem"
+          *ngFor="let prd of ProdcutsList"
+        >
+          <div
+            class="card-img-top d-flex justify-content-center al"
+            style="height: 250px"
+          >
+            <img src="{{ prd.img }}" class="img-fluid p-4 h-100" alt="..." />
+          </div>
+          <div class="card-body">
+            <h6 class="card-title h6">{{ prd.name }}</h6>
+            <p class="card-text">
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              Price: {{ prd.price | egyCurrency }}
+            </li>
+            <li class="list-group-item">Quantity: {{ prd.quantity }}</li>
+          </ul>
+          <div class="card-body text-end">
+            <a class="btn btn-primary me-2" routerLink="/Products/{{ prd.id }}"
+              >Details</a
+            >
+            <button class="btn btn-outline-primary" (click)="addToCart(prd)">
+              Add To Cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

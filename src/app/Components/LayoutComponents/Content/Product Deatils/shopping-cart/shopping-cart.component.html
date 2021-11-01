@@ -1,0 +1,44 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>pirce</th>
+      <th>Avaliable</th>
+      <th>Needed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let prd of cartList; let i = index">
+      <td scope="row">{{ prd.name }}</td>
+      <td #price>{{ prd.price }}</td>
+      <td>{{ prd.quantity }}</td>
+      <td>
+        <input
+          #pAmount
+          type="number"
+          min="1"
+          name="quantity"
+          id="quantity"
+          [(ngModel)]="prd.neededAmount"
+          #quantitys
+          (change)="calcauteTotal()"
+        />
+      </td>
+      <td>
+        <button
+          type="button"
+          class="btn btn-outline-primary"
+          (click)="reomveItem(prd.id, i)"
+        >
+          X
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>total: {{ finalTotalPrice }}</p>
+<button type="button" class="btn btn-primary">Buy Now</button>
+<button type="button" class="btn btn-outline-primary" (click)="reomveAll()">
+  Clear All
+</button>

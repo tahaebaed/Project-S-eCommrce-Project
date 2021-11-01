@@ -1,0 +1,267 @@
+{
+  "companyInfo": {
+    "name": "project S",
+    "owner": "Taha Shahat Ebaed",
+    "number": "+20107727196",
+    "address": "cairo, Egpyt",
+    "fb": "https://www.facebook.com/taha.ebaed/",
+    "linkedin": "https://www.linkedin.com/in/taha-ebaed/",
+    "info": "lorem"
+  },
+  "products": [
+    {
+      "id": 1,
+      "name": "i Phone X",
+      "price": 4000,
+      "quantity": 17,
+      "neededAmount": 0,
+      "img": "assets/products/51wJNDMnmnL._AC_SY741_.jpg",
+      "categoryid": {
+        "id": 2,
+        "name": "Mobiles"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Samsung Galaxy A12",
+      "price": 6000,
+      "neededAmount": 0,
+      "quantity": 16,
+      "img": "assets/products/samsung.jpg",
+      "categoryid": {
+        "id": 1,
+        "name": "Mobiles"
+      }
+    },
+    {
+      "id": 4,
+      "name": "HP 255 G7 Laptop",
+      "price": 7000,
+      "neededAmount": 0,
+      "quantity": 7,
+      "img": "assets/products/lab.jpg",
+      "categoryid": {
+        "id": 2,
+        "name": "Laptop"
+      }
+    },
+    {
+      "id": 5,
+      "name": "SARY TWiST2",
+      "price": 6000,
+      "neededAmount": 0,
+      "quantity": 15,
+      "img": "assets/products/SARYTWIST2.jpg",
+      "categoryid": {
+        "id": 2,
+        "name": "Laptop"
+      }
+    },
+    {
+      "id": 6,
+      "name": "Playstation",
+      "img": "https://m.media-amazon.com/images/I/311AAjeId7L._AC_.jpg",
+      "quantity": 10,
+      "neededAmount": 0,
+      "price": 100,
+      "categoryid": {
+        "id": 4,
+        "name": "games"
+      }
+    },
+    {
+      "id": 9524,
+      "name": "test",
+      "img": "https://m.media-amazon.com/images/I/311AAjeId7L._AC_.jpg",
+      "quantity": 4,
+      "neededAmount": 0,
+      "price": 3,
+      "categoryid": {
+        "id": 4,
+        "name": "test"
+      }
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postid": 1
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "firstName": "hamada",
+      "lastName": "shahat",
+      "email": "hebaed@email.com",
+      "password": "test",
+      "admin": false
+    },
+    {
+      "id": 2,
+      "firstName": "taha",
+      "lastName": "ebaed",
+      "email": "taha@email.com",
+      "password": "test",
+      "admin": true
+    },
+    {
+      "id": 9680,
+      "firstName": "rami",
+      "lastName": "subzerk",
+      "email": "subzerk@email.com",
+      "password": "12345678",
+      "admin": false
+    },
+    {
+      "id": 1421,
+      "firstName": "Taha",
+      "lastName": "Ebaed",
+      "email": "tebaed@email.com",
+      "password": "test",
+      "admin": false
+    },
+    {
+      "id": 9326,
+      "firstName": "mohmed",
+      "lastName": "hadidy",
+      "email": "hadidy@email.com",
+      "password": "test",
+      "admin": false
+    },
+    {
+      "id": 797,
+      "firstName": "mahmoud",
+      "lastName": "gaber",
+      "email": "mgaber@email.com",
+      "password": "test",
+      "admin": false
+    },
+    {
+      "id": 8206,
+      "firstName": "testy",
+      "lastName": "test",
+      "email": "testy@email.com",
+      "password": "test",
+      "admin": false
+    },
+    {
+      "id": 5360,
+      "firstName": "Taha",
+      "lastName": "Ebaed",
+      "email": "taha@email.com",
+      "password": "12345678",
+      "admin": false
+    },
+    {
+      "id": 5281,
+      "firstName": "Taha",
+      "lastName": "Ebaed",
+      "email": "taha@email.com",
+      "password": "12345678",
+      "admin": false
+    },
+    {
+      "id": 84,
+      "firstName": "Taha",
+      "lastName": "Ebaed",
+      "email": "testy@email.com",
+      "password": "12345678",
+      "admin": false
+    },
+    {
+      "id": 367,
+      "firstName": "Taha",
+      "lastName": "Ebaed",
+      "email": "taha@email.com",
+      "password": "12345678",
+      "admin": false
+    },
+    {
+      "id": 7358,
+      "firstName": "Taha",
+      "lastName": "Ebaed",
+      "email": "testy@email.com",
+      "password": "12345678",
+      "admin": false
+    },
+    {
+      "id": 3977,
+      "firstName": "Taha",
+      "lastName": "Ebaed",
+      "email": "testy@email.com",
+      "password": "12345678",
+      "admin": false
+    },
+    {
+      "id": 9026,
+      "firstName": "Taha",
+      "lastName": "Ebaed",
+      "email": "testy@email.com",
+      "password": "12345678",
+      "admin": false
+    },
+    {
+      "id": 2048,
+      "firstName": "Taha",
+      "lastName": "Ebaed",
+      "email": "testy@email.com",
+      "password": "12345678",
+      "admin": false
+    }
+  ],
+  "cart": [
+    {
+      "id": 3,
+      "name": "Samsung Galaxy A12",
+      "price": 6000,
+      "neededAmount": 0,
+      "quantity": 16,
+      "img": "assets/products/samsung.jpg",
+      "categoryid": {
+        "id": 1,
+        "name": "Mobiles"
+      }
+    },
+    {
+      "id": 1,
+      "name": "i Phone X",
+      "price": 4000,
+      "quantity": 17,
+      "neededAmount": 0,
+      "img": "assets/products/51wJNDMnmnL._AC_SY741_.jpg",
+      "categoryid": {
+        "id": 2,
+        "name": "Mobiles"
+      }
+    },
+    {
+      "id": 4,
+      "name": "HP 255 G7 Laptop",
+      "price": 7000,
+      "neededAmount": 0,
+      "quantity": 10,
+      "img": "assets/products/lab.jpg",
+      "categoryid": {
+        "id": 2,
+        "name": "Laptop"
+      }
+    },
+    {
+      "id": 6,
+      "name": "Playstation",
+      "img": "https://m.media-amazon.com/images/I/311AAjeId7L._AC_.jpg",
+      "quantity": 10,
+      "neededAmount": 0,
+      "price": 100,
+      "categoryid": {
+        "id": 4,
+        "name": "games"
+      }
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
