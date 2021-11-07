@@ -20,17 +20,7 @@ export class EditProductComponent implements OnInit {
     private prdServ: ProdcutService,
     private router: Router,
     private activRoute: ActivatedRoute
-  ) {
-    // this.EditProduct = {
-    //   id: 0,
-    //   name: 'test',
-    //   img: '',
-    //   quantity: 0,
-    //   neededAmount: 0,
-    //   price: 0,
-    //   categoryid: { id: 0, name: 'test' },
-    // };
-  }
+  ) {  }
 
   editProduct() {
     this.saved = true;

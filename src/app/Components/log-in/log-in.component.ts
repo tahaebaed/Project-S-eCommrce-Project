@@ -28,15 +28,22 @@ export class LogInComponent implements OnInit {
   }
 
   login(userEmail: string, pw: string): UsersEmails | undefined {
-    this.UserLogin = this.UsersEmails.find(
-      (user) => userEmail == user.email && pw == user.password
-    );
-    localStorage.setItem('userDetails', JSON.stringify(this.UserLogin));
-    this.UserLogin
-      ? this.router.navigate(['Prodcuts'])
-      : alert('you enter a wrong email or password');
+    if (!userEmail && !pw) {
+      alert('please enter your email and pw');
+    } else {
+      this.UserLogin = this.UsersEmails.find(
+        (user) => userEmail == user.email && pw == user.password
+      );
+      localStorage.setItem(
+        'userDetails',
+        JSON.stringify(this.UserLogin?.admin)
+      );
+      this.UserLogin
+        ? this.router.navigate(['Prodcuts'])
+        : alert('you enter a wrong email or password');
 
-    console.log(this.UserLogin);
+      console.log(this.UserLogin);
+    }
     return this.UserLogin;
   }
   loggedstate(): boolean {

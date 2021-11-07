@@ -13,6 +13,7 @@ import { UsersEmails } from 'src/app/Shared Classes and types/usersEmails';
 export class SignUpComponent implements OnInit {
   UsersEmails: UsersEmails[] = [];
   newUser: UsersEmails;
+  userCheck: any;
   constructor(
     private users: UsersService,
     private router: Router // private f: NgForm
@@ -28,18 +29,11 @@ export class SignUpComponent implements OnInit {
   }
 
   emailCheck(userEmail: string, user: UsersEmails) {
-    // this.UsersEmails.forEach((email) => {
-    //   if (userEmail === email.email) {
-    //     alert(`this ${userEmail} is token please Enter a new one`);
-    //   } else {
-    //     this.users.addNewEmail(user).subscribe((data) => {
-    //       console.log(data);
-    //       this.router.navigate(['/Login']);
-    //     });
-    //     console.log('this user has been added');
-    //   }
-    // });
-    if (this.UsersEmails.includes(user)) {
+    this.userCheck = this.UsersEmails.filter((usr) => {
+      return usr.email === userEmail;
+    }).some((usr1) => usr1.email === userEmail);
+    console.log(this.userCheck);
+    if (!this.userCheck) {
       this.users.addNewEmail(user).subscribe((data) => {
         console.log(data);
         this.router.navigate(['/Login']);
@@ -49,16 +43,6 @@ export class SignUpComponent implements OnInit {
       alert(`this ${userEmail} is token please Enter a new one`);
     }
   }
-
-  // addNewUser(user: UsersEmails) {
-  //   console.log(user);
-
-  //   this.users.addNewEmail(user).subscribe((data) => {
-  //     console.log(data);
-  //     this.router.navigate(['/Login']);
-  //   });
-  //   alert('this user has been added');
-  // }
 
   ngOnInit(): void {
     this.users.getAllUsers().subscribe((data) => (this.UsersEmails = data));

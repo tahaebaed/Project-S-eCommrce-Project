@@ -6,4 +6,6 @@ export interface IProdcut {
   price: number;
   img: string;
   categoryid: { id: number; name: string };
+  shopCart: boolean;
+  favState: boolean;
 }

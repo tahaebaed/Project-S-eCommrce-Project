@@ -30,6 +30,8 @@ export class InsertProductComponent implements OnInit {
       neededAmount: 0,
       price: 0,
       categoryid: { id: 0, name: 'test' },
+      shopCart: false,
+      favState: false,
     };
   }
 

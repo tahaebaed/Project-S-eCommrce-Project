@@ -1,3 +1,6 @@
+import { ToastService } from 'angular-toastify';
+import { filter } from 'rxjs/operators';
+import { CategoryService } from './../../../../../Services/category.service';
 import { ProdcutService } from '../../../../../Services/prodcut.service';
 import { IProdcut } from 'src/app/Shared Classes and types/iprodcut';
 import {
@@ -8,6 +11,9 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { Router } from '@angular/router';
+import { ICategory } from 'src/app/Shared Classes and types/icategory';
+import { FavoriteListService } from 'src/app/Services/favorite-list.service';
+import { AppToastService } from 'src/app/Services/app-toast.service';
 
 @Component({
   selector: 'app-Prodcuts',
@@ -17,26 +23,80 @@ import { Router } from '@angular/router';
 export class ProdcutsComponent implements OnInit, OnChanges {
   // @Output() prodcutByCatID: number = 0;
   ProdcutsList: IProdcut[] = [];
-  constructor(private ProdService: ProdcutService, private _router: Router) {}
+  ProdcutsListFiltred: IProdcut[] = [];
+  ctgList: ICategory[] = [];
+  faveItems: IProdcut[] = [];
+
+  constructor(
+    private ProdService: ProdcutService,
+    private _router: Router,
+    private ctgServ: CategoryService,
+    private favServ: FavoriteListService,
+    private _toastService: ToastService,
+    public toastService: AppToastService
+  ) {}
 
   getProductByID(prodID: number) {
     this._router.navigate(['/Products', prodID]);
   }
-  // getProductByCatID() {
-  //   this.ProdService.getProductByID(this.prodcutByCatID);
-  // }
+  showSuccess() {
+    this.toastService.show('I am a success toast', {
+      classname: 'bg-success text-light',
+      delay: 10000,
+    });
+  }
   addToCart(prd: IProdcut) {
-    this.ProdService.addToCart(prd).subscribe((data) => console.log(prd));
-  }
-
-  ngOnChanges() {
-    // this.getProductByCatID();
-  }
-
-  ngOnInit() {
-    // this.ProdService.getProductByCatID(1).subscri
-    this.ProdService.getAllProducts().subscribe(
-      (data) => (this.ProdcutsList = data)
+    prd.shopCart = !prd.shopCart;
+    console.log(
+      `This array has a new emlemnt ${prd} ${JSON.stringify(this.ctgList)}`
     );
+    if (prd.shopCart) {
+      this.ProdService.ChangeCartStatus(true, prd.id);
+      this.ProdService.addToCart(prd).subscribe((data) => console.log(prd));
+      this.ProdService.IncreaseCounter(1);
+    } else {
+      this.ProdService.ChangeCartStatus(false, prd.id);
+      this.ProdService.removeformCart(prd.id).subscribe((data) =>
+        console.log(data)
+      );
+      this.ProdService.DecreaseCounter(1);
+    }
+  }
+
+  fliterProduct(ctgId: number) {
+    this.ProdService.getAllProducts().subscribe((data) => {
+      ctgId
+        ? (this.ProdcutsList = data.filter(
+            (prd) => prd.categoryid.id === ctgId
+          ))
+        : (this.ProdcutsList = data);
+    });
+
+    // this.ProdcutsList = this.ProdcutsList.filter(
+    //   (prd) => prd.categoryid.id === ctgId
+    // );
+  }
+
+  addToFavorite(prd: IProdcut) {
+    prd.favState = !prd.favState;
+    if (prd.favState) {
+      this.favServ.addToFav(prd).subscribe();
+      this.ProdService.editProudct(prd.id, prd);
+    } else {
+      this.ProdService.editProudct(prd.id, prd);
+      this.favServ.removeformFav(prd.id).subscribe();
+    }
+  }
+
+  ngOnChanges() {}
+  addInfoToast() {
+    this._toastService.info('message');
+  }
+  ngOnInit() {
+    this.ProdService.getAllProducts().subscribe((data) => {
+      this.ProdcutsList = data;
+      console.log(this.ProdcutsList);
+    });
+    this.ctgServ.getAllCategory().subscribe((data) => (this.ctgList = data));
   }
 }

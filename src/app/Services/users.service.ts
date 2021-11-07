@@ -9,6 +9,12 @@ import { Injectable } from '@angular/core';
 })
 export class UsersService {
   emails?: Observable<UsersEmails[]>;
+  httpOptions = {
+    headers: new HttpHeaders({
+      'content-type': 'application/json',
+      accept: '*/*',
+    }),
+  };
   constructor(private http: HttpClient) {}
 
   getAllUsers() {
@@ -17,28 +23,16 @@ export class UsersService {
     ));
   }
   removeEmail(email: number) {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'content-type': 'application/json',
-        accept: '*/*',
-      }),
-    };
-
     return this.http.delete(
       `${environment.apiUrl}/users/${email}`,
-      httpOptions
+      this.httpOptions
     );
   }
   addNewEmail(email: UsersEmails) {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'content-type': 'application/json',
-        accept: '*/*',
-      }),
-    };
-   return this.http.post(`${environment.apiUrl}/users`, email, httpOptions);
-  }
-  getUserByToken(token: string): Observable<UsersEmails> {
-    return this.http.get<UsersEmails>(`${environment.apiUrl}/users/${token}`);
+    return this.http.post(
+      `${environment.apiUrl}/users`,
+      email,
+      this.httpOptions
+    );
   }
 }

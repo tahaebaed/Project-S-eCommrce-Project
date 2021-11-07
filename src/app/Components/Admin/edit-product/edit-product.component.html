@@ -1,7 +1,7 @@
 <div class="container">
   <div class="form__details">
     <h2 class="mt-3">Edit Product details</h2>
-    <div [hidden]="submitted">
+    <div >
       <form class="row" #prodForm="ngForm" (ngSubmit)="onSubmit()">
         <div class="col-5">
           <div class="form-group">
@@ -132,6 +132,8 @@
           type="submit"
           style="background-color: #591b3f; color: white"
           class="btn btn-default col-3 ms-3 mb-3"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
           [disabled]="prodForm.invalid"
         >
           Submit
@@ -139,7 +141,7 @@
       </form>
     </div>
 
-    <div [hidden]="!submitted">
+    <!-- <div [hidden]="!submitted">
       <h2>Are You Sure You want to Confirm the updates</h2>
 
       <div [hidden]="saved">
@@ -165,6 +167,54 @@
         <h2 *ngIf="status === '500'" style="text-align: center; color: black">
           Edited Product Insertion Failed...
         </h2>
+      </div>
+    </div>
+  </div> -->
+    <div [hidden]="!submitted">
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header d-flex align-items-center">
+              <h5
+                class="modal-title fs-5 text-primary pt-2"
+                id="exampleModalLabel"
+              >
+                ِAre You sure This is the details you want to add?
+              </h5>
+              <button
+                type="button"
+                (click)="submitted = false"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body d-flex flex-column align-item-start"></div>
+            <div class="modal-footer" [hidden]="saved">
+              <button
+                (click)="submitted = false"
+                type="button"
+                class="btn btn-outline-primary"
+                data-bs-dismiss="modal"
+              >
+                Edit
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                (click)="editProduct()"
+              >
+                Save changes
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

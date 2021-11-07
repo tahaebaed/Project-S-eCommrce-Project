@@ -1,3 +1,4 @@
+import { AuthGuard } from './Components/JustUser/user/auth.guard';
 import { ViewProdcutComponent } from './Components/LayoutComponents/Content/Product Deatils/View-Prodcut/View-Prodcut.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -12,13 +13,13 @@ import { ShoppingCartComponent } from './Components/LayoutComponents/Content/Pro
 
 const routes: Routes = [
   { path: 'Home', component: HomeComponent },
-  { path: 'Prodcuts', component: ProdcutsComponent },
+  { path: 'Prodcuts', component: ProdcutsComponent, canActivate: [AuthGuard] },
   { path: 'Products/:id', component: ViewProdcutComponent },
   { path: 'About-Us', component: AboutComponent },
   { path: 'Contact-Us', component: ContactUsComponent },
   { path: 'Login', component: LogInComponent },
   { path: 'Signup', component: SignUpComponent },
-  { path: 'cart', component: ShoppingCartComponent },
+  { path: 'cart', component: ShoppingCartComponent, canActivate: [AuthGuard] },
   {
     path: 'Admin',
     loadChildren: () =>

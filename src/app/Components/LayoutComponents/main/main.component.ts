@@ -1,3 +1,4 @@
+import { ToastService } from 'angular-toastify';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main.component.css'],
 })
 export class MainComponent implements OnInit {
-
-  constructor() {
-
+  constructor(private _toastService: ToastService) {}
+  addInfoToast() {
+    this._toastService.info('message');
   }
-
   ngOnInit(): void {}
 }

@@ -1,5 +1,8 @@
+import { ProdcutService } from 'src/app/Services/prodcut.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { IProdcut } from 'src/app/Shared Classes and types/iprodcut';
+import { MatSliderModule } from '@angular/material/slider';
 
 @Component({
   selector: 'app-Home',
@@ -9,15 +12,15 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
   storeLogo: string;
   storeName: string;
-  constructor(private router: Router) {
+  prdList!: IProdcut[];
+
+  constructor(private prdServ: ProdcutService, private router: Router) {
     this.storeName = 'PROJECT S';
     this.storeLogo = 'assets/mainlogo.png';
   }
-  login() {
-    this.router.navigate(['/Login']);
+
+  ngOnInit() {
+    this.prdServ.getAllProducts().subscribe((data) => (this.prdList = data));
+    console.log(this.prdList);
   }
-  signUp() {
-    this.router.navigate(['/Signup']);
-  }
-  ngOnInit() {}
 }

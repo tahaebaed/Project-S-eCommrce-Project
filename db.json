@@ -1,49 +1,75 @@
 {
   "companyInfo": {
-    "name": "project S",
+    "name": "Project S",
     "owner": "Taha Shahat Ebaed",
     "number": "+20107727196",
+    "email": "tahaebaed2@gmail.com",
     "address": "cairo, Egpyt",
     "fb": "https://www.facebook.com/taha.ebaed/",
     "linkedin": "https://www.linkedin.com/in/taha-ebaed/",
-    "info": "lorem"
+    "info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "logo": "assets/mainlogo.png"
   },
+  "category": [
+    {
+      "id": 0,
+      "name": "All"
+    },
+    {
+      "id": 1,
+      "name": "Mobiles"
+    },
+    {
+      "id": 2,
+      "name": "Laptop"
+    },
+    {
+      "id": 3,
+      "name": "tablet"
+    }
+  ],
   "products": [
     {
       "id": 1,
       "name": "i Phone X",
       "price": 4000,
-      "quantity": 17,
+      "quantity": 13,
       "neededAmount": 0,
       "img": "assets/products/51wJNDMnmnL._AC_SY741_.jpg",
       "categoryid": {
-        "id": 2,
+        "id": 1,
         "name": "Mobiles"
-      }
+      },
+      "shopCart": false,
+      "favState": false
     },
     {
       "id": 3,
       "name": "Samsung Galaxy A12",
       "price": 6000,
       "neededAmount": 0,
-      "quantity": 16,
+      "quantity": 11,
       "img": "assets/products/samsung.jpg",
       "categoryid": {
         "id": 1,
         "name": "Mobiles"
-      }
+      },
+      "shopCart": false,
+      "favState": false
     },
     {
       "id": 4,
       "name": "HP 255 G7 Laptop",
       "price": 7000,
       "neededAmount": 0,
-      "quantity": 7,
+      "quantity": 5,
       "img": "assets/products/lab.jpg",
       "categoryid": {
         "id": 2,
         "name": "Laptop"
-      }
+      },
+      "shopCart": false,
+      "favState": true
     },
     {
       "id": 5,
@@ -55,31 +81,37 @@
       "categoryid": {
         "id": 2,
         "name": "Laptop"
-      }
-    },
-    {
-      "id": 6,
-      "name": "Playstation",
-      "img": "https://m.media-amazon.com/images/I/311AAjeId7L._AC_.jpg",
-      "quantity": 10,
-      "neededAmount": 0,
-      "price": 100,
-      "categoryid": {
-        "id": 4,
-        "name": "games"
-      }
+      },
+      "shopCart": false,
+      "favState": false
     },
     {
       "id": 9524,
-      "name": "test",
+      "name": "New Product",
       "img": "https://m.media-amazon.com/images/I/311AAjeId7L._AC_.jpg",
-      "quantity": 4,
+      "quantity": 5,
       "neededAmount": 0,
       "price": 3,
       "categoryid": {
-        "id": 4,
+        "id": 3,
         "name": "test"
-      }
+      },
+      "shopCart": false,
+      "favState": false
+    },
+    {
+      "id": 7980,
+      "name": "New PRoduct From add",
+      "img": "https://m.media-amazon.com/images/I/311AAjeId7L._AC_.jpg",
+      "quantity": 15,
+      "neededAmount": 0,
+      "price": 300,
+      "categoryid": {
+        "id": 3,
+        "name": "tablet"
+      },
+      "shopCart": false,
+      "favState": false
     }
   ],
   "comments": [
@@ -107,158 +139,29 @@
       "admin": true
     },
     {
-      "id": 9680,
-      "firstName": "rami",
-      "lastName": "subzerk",
-      "email": "subzerk@email.com",
-      "password": "12345678",
-      "admin": false
-    },
-    {
-      "id": 1421,
-      "firstName": "Taha",
-      "lastName": "Ebaed",
-      "email": "tebaed@email.com",
-      "password": "test",
-      "admin": false
-    },
-    {
-      "id": 9326,
-      "firstName": "mohmed",
-      "lastName": "hadidy",
-      "email": "hadidy@email.com",
-      "password": "test",
-      "admin": false
-    },
-    {
-      "id": 797,
-      "firstName": "mahmoud",
-      "lastName": "gaber",
-      "email": "mgaber@email.com",
-      "password": "test",
-      "admin": false
-    },
-    {
-      "id": 8206,
-      "firstName": "testy",
-      "lastName": "test",
-      "email": "testy@email.com",
-      "password": "test",
-      "admin": false
-    },
-    {
-      "id": 5360,
-      "firstName": "Taha",
-      "lastName": "Ebaed",
-      "email": "taha@email.com",
-      "password": "12345678",
-      "admin": false
-    },
-    {
-      "id": 5281,
-      "firstName": "Taha",
-      "lastName": "Ebaed",
-      "email": "taha@email.com",
-      "password": "12345678",
-      "admin": false
-    },
-    {
-      "id": 84,
-      "firstName": "Taha",
-      "lastName": "Ebaed",
-      "email": "testy@email.com",
-      "password": "12345678",
-      "admin": false
-    },
-    {
-      "id": 367,
-      "firstName": "Taha",
-      "lastName": "Ebaed",
-      "email": "taha@email.com",
-      "password": "12345678",
-      "admin": false
-    },
-    {
-      "id": 7358,
-      "firstName": "Taha",
-      "lastName": "Ebaed",
-      "email": "testy@email.com",
-      "password": "12345678",
-      "admin": false
-    },
-    {
-      "id": 3977,
-      "firstName": "Taha",
-      "lastName": "Ebaed",
-      "email": "testy@email.com",
-      "password": "12345678",
-      "admin": false
-    },
-    {
-      "id": 9026,
-      "firstName": "Taha",
-      "lastName": "Ebaed",
-      "email": "testy@email.com",
-      "password": "12345678",
-      "admin": false
-    },
-    {
-      "id": 2048,
-      "firstName": "Taha",
-      "lastName": "Ebaed",
-      "email": "testy@email.com",
-      "password": "12345678",
+      "id": 7330,
+      "firstName": "ay",
+      "lastName": "7aga",
+      "email": "hebaed3@email.com",
+      "password": "124333333",
       "admin": false
     }
   ],
-  "cart": [
-    {
-      "id": 3,
-      "name": "Samsung Galaxy A12",
-      "price": 6000,
-      "neededAmount": 0,
-      "quantity": 16,
-      "img": "assets/products/samsung.jpg",
-      "categoryid": {
-        "id": 1,
-        "name": "Mobiles"
-      }
-    },
-    {
-      "id": 1,
-      "name": "i Phone X",
-      "price": 4000,
-      "quantity": 17,
-      "neededAmount": 0,
-      "img": "assets/products/51wJNDMnmnL._AC_SY741_.jpg",
-      "categoryid": {
-        "id": 2,
-        "name": "Mobiles"
-      }
-    },
+  "cart": [],
+  "favorite": [
     {
       "id": 4,
       "name": "HP 255 G7 Laptop",
       "price": 7000,
       "neededAmount": 0,
-      "quantity": 10,
+      "quantity": 6,
       "img": "assets/products/lab.jpg",
       "categoryid": {
         "id": 2,
         "name": "Laptop"
-      }
-    },
-    {
-      "id": 6,
-      "name": "Playstation",
-      "img": "https://m.media-amazon.com/images/I/311AAjeId7L._AC_.jpg",
-      "quantity": 10,
-      "neededAmount": 0,
-      "price": 100,
-      "categoryid": {
-        "id": 4,
-        "name": "games"
-      }
+      },
+      "shopCart": false,
+      "favState": true
     }
   ],
   "profile": {

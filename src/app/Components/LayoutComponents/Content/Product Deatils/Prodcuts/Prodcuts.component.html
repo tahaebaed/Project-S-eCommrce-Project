@@ -7,36 +7,18 @@
   >
     <p class="fs-4 text-primary border-bottom py-2">Category</p>
     <div class="text-start ms-4">
-      <div class="form-check">
+      <div class="form-check" *ngFor="let ctg of ctgList">
         <input
           class="form-check-input"
           type="radio"
           name="flexRadioDefault"
           id="flexRadioDefault1"
+          [value]="ctg.id"
+          (change)="fliterProduct(ctg.id)"
         />
         <label class="form-check-label" for="flexRadioDefault1">
-          mobiles
+          {{ ctg.name }}
         </label>
-      </div>
-      <div class="form-check">
-        <input
-          class="form-check-input"
-          type="radio"
-          name="flexRadioDefault"
-          id="flexRadioDefault2"
-        />
-        <label class="form-check-label" for="flexRadioDefault2">
-          LabPtop
-        </label>
-      </div>
-      <div class="form-check">
-        <input
-          class="form-check-input"
-          type="radio"
-          name="flexRadioDefault"
-          id="flexRadioDefault2"
-        />
-        <label class="form-check-label" for="flexRadioDefault2"> Tablet </label>
       </div>
     </div>
   </div>
@@ -64,7 +46,7 @@
             <img src="{{ prd.img }}" class="img-fluid p-4 h-100" alt="..." />
           </div>
           <div class="card-body">
-            <h6 class="card-title h6">{{ prd.name }}</h6>
+            <h6 class="fs-6 fw-bold card-title h6">{{ prd.name }}</h6>
             <p class="card-text">
               Some quick example text to build on the card title and make up the
               bulk of the card's content.
@@ -76,16 +58,45 @@
             </li>
             <li class="list-group-item">Quantity: {{ prd.quantity }}</li>
           </ul>
-          <div class="card-body text-end">
+          <div class="d-flex card-body justify-content-end">
             <a class="btn btn-primary me-2" routerLink="/Products/{{ prd.id }}"
               >Details</a
             >
-            <button class="btn btn-outline-primary" (click)="addToCart(prd)">
+            <a
+              type="button"
+              class="btn btn-outline-primary"
+              id="liveToastBtn"
+              (click)="addToCart(prd)"
+            >
+              <i class="bi" [class.bi-cart-fill]="prd.shopCart"></i>
+              <i class="bi" [class.bi-cart]="!prd.shopCart"></i>
+            </a>
+            <a
+              type="button"
+              class="btn btn-outline-primary ms-2"
+              id="liveToastBtn"
+              (click)="addToFavorite(prd)"
+              ngbTooltip="Will disappear in 10s"
+            >
+              <i class="bi" [class.bi-heart-fill]="prd.favState"></i>
+              <i class="bi" [class.bi-heart]="!prd.favState"></i>
+            </a>
+            <!-- <button class="btn btn-outline-primary" (click)="addToCart(prd)">
               Add To Cart
-            </button>
+            </button> -->
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<ngb-toast
+  class="text-primary toaster d-flex flex-column mt-3"
+  *ngFor="let toast of toastService.toasts"
+  [header]="toast.header"
+  [autohide]="true"
+  [delay]="toast.delay || 5000"
+  (hide)="toastService.remove(toast)"
+  >{{ toast.body }}</ngb-toast
+>

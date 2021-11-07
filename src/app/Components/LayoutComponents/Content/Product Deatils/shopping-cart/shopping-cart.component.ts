@@ -2,7 +2,7 @@ import { IProdcut } from 'src/app/Shared Classes and types/iprodcut';
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProdcutService } from 'src/app/Services/prodcut.service';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -11,6 +11,7 @@ import { Observable } from 'rxjs';
 })
 export class ShoppingCartComponent implements OnInit {
   cartList: IProdcut[] = [];
+  public CartProductList!: Subscription;
   totoQantity: number[] = [];
   totalPrice: number[] = [];
   finalTotalPrice: any;
@@ -20,6 +21,10 @@ export class ShoppingCartComponent implements OnInit {
 
   addToCart(prd: IProdcut) {
     this.ProdService.addToCart(prd).subscribe((data) => console.log(prd));
+    this.ProdService.accsesShoppingCart().subscribe((data) => {
+      this.cartList = data;
+      console.log(`this ${this.cartList} has benn add to this.cartList`);
+    });
   }
 
   calcauteTotal() {
@@ -34,6 +39,7 @@ export class ShoppingCartComponent implements OnInit {
 
   reomveItem(prdID: number, i: any) {
     this.ProdService.removeformCart(prdID).subscribe();
+    this.ProdService.DecreaseCounter(1);
     this.cartList.splice(i, 1);
     if (this.cartList.length > 0) {
       this.cartList.forEach(
@@ -46,25 +52,19 @@ export class ShoppingCartComponent implements OnInit {
     console.log('removed');
   }
 
-  reomveAll() {
-    this.ProdService.removeAllformCart().subscribe();
-    this.cartList = [];
-    if (this.cartList.length > 0) {
-      this.cartList.forEach(
-        (prd) => (this.finalTotalPrice = prd.price * prd.neededAmount)
-      );
-    } else {
-      this.finalTotalPrice = 0;
-    }
-
-    console.log('removed');
+  buyProducts() {
+    this.cartList.forEach((prod, i) => {
+      this.ProdService.purchaseProduct(prod.id, prod, prod.neededAmount);
+    });
   }
 
   ngOnInit(): void {
     this.finalTotalPrice = 0;
-    this.ProdService.accsesShoppingCart().subscribe((data) => {
-      this.cartList = data;
-      console.log(this.cartList);
-    });
+    this.CartProductList = this.ProdService.accsesShoppingCart().subscribe(
+      (data) => {
+        this.cartList = data;
+        console.log(this.cartList);
+      }
+    );
   }
 }

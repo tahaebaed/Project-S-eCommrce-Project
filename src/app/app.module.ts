@@ -21,6 +21,10 @@ import { LogInComponent } from './Components/log-in/log-in.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ShoppingCartComponent } from './Components/LayoutComponents/Content/Product Deatils/shopping-cart/shopping-cart.component';
 import { EgyCurrencyPipe } from './pipes/egy-currency.pipe';
+import { FavoriteListComponent } from './Components/LayoutComponents/Content/Product Deatils/favorite-list/favorite-list.component';
+import { MatSliderModule } from '@angular/material/slider';
+import { AngularToastifyModule, ToastService } from 'angular-toastify';
+import { AppToastComponent } from './app-toast/app-toast.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +39,8 @@ import { EgyCurrencyPipe } from './pipes/egy-currency.pipe';
     LogInComponent,
     ShoppingCartComponent,
     EgyCurrencyPipe,
+    FavoriteListComponent,
+    AppToastComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,8 +50,10 @@ import { EgyCurrencyPipe } from './pipes/egy-currency.pipe';
     NgbModule,
     HttpClientModule,
     ReactiveFormsModule,
+    MatSliderModule,
+    AngularToastifyModule,
   ],
-  providers: [],
+  providers: [ToastService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
