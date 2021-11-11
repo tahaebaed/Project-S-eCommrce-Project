@@ -41,8 +41,6 @@ export class LogInComponent implements OnInit {
       this.UserLogin
         ? this.router.navigate(['Prodcuts'])
         : alert('you enter a wrong email or password');
-
-      console.log(this.UserLogin);
     }
     return this.UserLogin;
   }
@@ -65,7 +63,6 @@ export class LogInComponent implements OnInit {
   ngOnInit(): void {
     this.users.getAllUsers().subscribe((data) => {
       this.UsersEmails = data;
-      console.log('this is user data', this.UsersEmails);
     });
   }
 }

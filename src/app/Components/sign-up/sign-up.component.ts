@@ -32,13 +32,11 @@ export class SignUpComponent implements OnInit {
     this.userCheck = this.UsersEmails.filter((usr) => {
       return usr.email === userEmail;
     }).some((usr1) => usr1.email === userEmail);
-    console.log(this.userCheck);
+
     if (!this.userCheck) {
       this.users.addNewEmail(user).subscribe((data) => {
-        console.log(data);
         this.router.navigate(['/Login']);
       });
-      console.log('this user has been added');
     } else {
       alert(`this ${userEmail} is token please Enter a new one`);
     }

@@ -38,7 +38,6 @@ export class InsertProductComponent implements OnInit {
   addProduct() {
     this.saved = true;
     this.prdServ.addNewProducts(this.newProduct).subscribe((data) => {
-      console.log(data);
       this.router.navigate(['/Admin/Admin-Panel']);
     });
   }

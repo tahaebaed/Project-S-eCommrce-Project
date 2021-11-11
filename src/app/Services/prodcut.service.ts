@@ -59,30 +59,20 @@ export class ProdcutService {
   }
 
   ChangeCartStatus(state: boolean, id: number) {
-    console.log(state);
-
     const cartState = {
       shopCart: state,
     };
-    console.log(cartState, id);
+
     return this.http
       .patch(
         `${environment.apiUrl}/products/${id}`,
         cartState,
         this.httpOptions
       )
-      .subscribe((data) =>
-        console.log(`This State data : ${JSON.stringify(data)}`)
-      );
+      .subscribe();
   }
 
-  // public RedaingTheCartArr(prods: IProdcut[]) {
-  //   console.log(`this Arr ${prods} from Products servise updated method`);
-  //   this.ProductsInCart.next(prods);
-  // }
-
   purchaseProduct(prodID: number, prd: IProdcut, amout: number) {
-    console.log(`${prodID} this prd form patch func ${prd}`);
     const updatedQuantity = {
       quantity: (prd.quantity -= amout),
     };
@@ -92,11 +82,10 @@ export class ProdcutService {
         updatedQuantity,
         this.httpOptions
       )
-      .subscribe((res) => console.log(`the response is ${res}`));
+      .subscribe();
   }
 
   editProudct(prodID: number, prd: IProdcut) {
-    console.log(`${prodID} this prd form patch func ${prd}`);
     const updatedProduct: IProdcut = prd;
 
     this.http
@@ -105,7 +94,7 @@ export class ProdcutService {
         updatedProduct,
         this.httpOptions
       )
-      .subscribe((res) => console.log(`the response is ${res}`));
+      .subscribe();
   }
 
   removeformCart(prdID: number): Observable<{}> {
@@ -116,9 +105,6 @@ export class ProdcutService {
   }
 
   addToCart(prd: IProdcut) {
-    console.log(
-      `this ${prd} has been added to this array ${this.shoppingCart}`
-    );
     return this.http.post(`${environment.apiUrl}/cart`, prd, this.httpOptions);
   }
 

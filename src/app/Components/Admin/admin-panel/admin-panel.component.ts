@@ -13,7 +13,7 @@ export class AdminPanelComponent implements OnInit {
   constructor(private prdList: ProdcutService, private _router: Router) {}
 
   removeItem(prd: number, index: any) {
-    this.prdList.removeProducts(prd).subscribe((data) => console.log(data));
+    this.prdList.removeProducts(prd).subscribe();
     this.productList.splice(index, 1);
   }
   getProductByID(prodID: number) {

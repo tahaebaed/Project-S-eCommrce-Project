@@ -48,8 +48,6 @@ export class ShoppingCartComponent implements OnInit {
     } else {
       this.finalTotalPrice = 0;
     }
-
-    console.log('removed');
   }
 
   buyProducts() {
@@ -63,7 +61,6 @@ export class ShoppingCartComponent implements OnInit {
     this.CartProductList = this.ProdService.accsesShoppingCart().subscribe(
       (data) => {
         this.cartList = data;
-        console.log(this.cartList);
       }
     );
   }

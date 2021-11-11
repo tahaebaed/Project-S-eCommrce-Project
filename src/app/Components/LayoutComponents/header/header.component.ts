@@ -36,12 +36,6 @@ export class HeaderComponent implements OnInit {
   ) {
     this.displayImg = 'assets/navbarlogo.png';
   }
-  // ngOnChanges(changes: SimpleChanges): void {
-  //   this.cartList.accsesShoppingCart().subscribe((data) => {
-  //     this.cartItems = data;
-  //     console.log(this.cartList);
-  //   });
-  // }
 
   loggedstate(): boolean {
     if (
@@ -84,13 +78,11 @@ export class HeaderComponent implements OnInit {
     this.cartList.accsesShoppingCart().subscribe((data) => {
       this.cartItems = data;
 
-      console.log(this.cartList);
       this.cartList.IncreaseCounter(data.length);
     });
 
     this.cartList.cartCounter.subscribe((data) => {
       this.counter = data;
-      console.log(`this is the counter ${data}`);
     });
 
     this.favServ

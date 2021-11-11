@@ -32,7 +32,7 @@ export class EditProductComponent implements OnInit {
     this.activRoute.paramMap.subscribe((params) => {
       sendID = Number(params.get('id'));
       this.getProdcutByID(sendID);
-      console.log(sendID);
+
     });
   }
 

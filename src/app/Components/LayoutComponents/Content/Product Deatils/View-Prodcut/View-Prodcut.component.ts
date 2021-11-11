@@ -21,21 +21,17 @@ export class ViewProdcutComponent implements OnInit {
   ) {}
 
   buyProduct(prdID: number, prod: IProdcut, amount: number) {
-    console.log(prod);
-    console.log(this.prd.quantity);
     this.ProdService.purchaseProduct(prdID, prod, amount);
   }
   addToCart(prd: IProdcut) {
     prd.shopCart = !prd.shopCart;
     if (prd.shopCart) {
       this.ProdService.ChangeCartStatus(true, prd.id);
-      this.ProdService.addToCart(prd).subscribe((data) => console.log(prd));
+      this.ProdService.addToCart(prd).subscribe();
       this.ProdService.IncreaseCounter(1);
     } else {
       this.ProdService.ChangeCartStatus(false, prd.id);
-      this.ProdService.removeformCart(prd.id).subscribe((data) =>
-        console.log(data)
-      );
+      this.ProdService.removeformCart(prd.id).subscribe();
       this.ProdService.DecreaseCounter(1);
     }
   }
@@ -54,7 +50,6 @@ export class ViewProdcutComponent implements OnInit {
     this.activRoute.paramMap.subscribe((params) => {
       sendID = Number(params.get('id'));
       this.getProdcutByID(sendID);
-      console.log(sendID);
     });
   }
 

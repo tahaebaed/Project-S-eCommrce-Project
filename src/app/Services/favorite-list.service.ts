@@ -21,7 +21,6 @@ export class FavoriteListService {
     this.favProdHolder = new BehaviorSubject([{}]);
   }
 
-  
   accsesFavorite(): Observable<IProdcut[]> {
     this.favoriteList = this.http.get<IProdcut[]>(
       `${environment.apiUrl}/favorite`
@@ -42,8 +41,6 @@ export class FavoriteListService {
     );
   }
   removeAllformCart(): Observable<{}> {
-    console.log(`a ely by7sl `);
-
     return this.http.delete(`${environment.apiUrl}/favorite`, this.httpOptions);
   }
 }

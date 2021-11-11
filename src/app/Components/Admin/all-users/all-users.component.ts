@@ -24,15 +24,12 @@ export class AllUsersComponent implements OnInit {
   }
   removeUser(user: number, i: any) {
     console.log(user);
-    this.users.removeEmail(user).subscribe((data) => {
-      console.log(data);
-    });
+    this.users.removeEmail(user).subscribe();
     this.UsersEmails.splice(i, 1);
   }
   ngOnInit(): void {
     this.users.getAllUsers().subscribe((data) => {
       this.UsersEmails = data;
-      console.log('this is user data', this.UsersEmails);
     });
   }
 }

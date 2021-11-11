@@ -47,18 +47,13 @@ export class ProdcutsComponent implements OnInit, OnChanges {
   }
   addToCart(prd: IProdcut) {
     prd.shopCart = !prd.shopCart;
-    console.log(
-      `This array has a new emlemnt ${prd} ${JSON.stringify(this.ctgList)}`
-    );
     if (prd.shopCart) {
       this.ProdService.ChangeCartStatus(true, prd.id);
-      this.ProdService.addToCart(prd).subscribe((data) => console.log(prd));
+      this.ProdService.addToCart(prd).subscribe();
       this.ProdService.IncreaseCounter(1);
     } else {
       this.ProdService.ChangeCartStatus(false, prd.id);
-      this.ProdService.removeformCart(prd.id).subscribe((data) =>
-        console.log(data)
-      );
+      this.ProdService.removeformCart(prd.id).subscribe();
       this.ProdService.DecreaseCounter(1);
     }
   }
@@ -71,10 +66,6 @@ export class ProdcutsComponent implements OnInit, OnChanges {
           ))
         : (this.ProdcutsList = data);
     });
-
-    // this.ProdcutsList = this.ProdcutsList.filter(
-    //   (prd) => prd.categoryid.id === ctgId
-    // );
   }
 
   addToFavorite(prd: IProdcut) {
@@ -95,7 +86,6 @@ export class ProdcutsComponent implements OnInit, OnChanges {
   ngOnInit() {
     this.ProdService.getAllProducts().subscribe((data) => {
       this.ProdcutsList = data;
-      console.log(this.ProdcutsList);
     });
     this.ctgServ.getAllCategory().subscribe((data) => (this.ctgList = data));
   }

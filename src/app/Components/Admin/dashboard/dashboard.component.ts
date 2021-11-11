@@ -21,7 +21,6 @@ export class DashboardComponent implements OnInit {
       .subscribe((data) => (this.ProductList = data));
     this.users.getAllUsers().subscribe((data) => {
       this.UsersEmails = data;
-      console.log('this is user data', this.UsersEmails);
     });
   }
 }
