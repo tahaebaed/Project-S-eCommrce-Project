@@ -48,7 +48,7 @@
       "name": "Samsung Galaxy A12",
       "price": 6000,
       "neededAmount": 0,
-      "quantity": 11,
+      "quantity": 9,
       "img": "assets/products/samsung.jpg",
       "categoryid": {
         "id": 1,
@@ -76,13 +76,13 @@
       "name": "SARY TWiST2",
       "price": 6000,
       "neededAmount": 0,
-      "quantity": 15,
+      "quantity": 13,
       "img": "assets/products/SARYTWIST2.jpg",
       "categoryid": {
         "id": 2,
         "name": "Laptop"
       },
-      "shopCart": false,
+      "shopCart": true,
       "favState": false
     },
     {
@@ -100,15 +100,15 @@
       "favState": false
     },
     {
-      "id": 7980,
-      "name": "New PRoduct From add",
+      "id": 7928,
+      "name": "Add New ",
       "img": "https://m.media-amazon.com/images/I/311AAjeId7L._AC_.jpg",
-      "quantity": 15,
+      "quantity": 2,
       "neededAmount": 0,
       "price": 300,
       "categoryid": {
-        "id": 3,
-        "name": "tablet"
+        "id": 1,
+        "name": "mobiles"
       },
       "shopCart": false,
       "favState": false
@@ -144,6 +144,22 @@
       "lastName": "7aga",
       "email": "hebaed3@email.com",
       "password": "124333333",
+      "admin": false
+    },
+    {
+      "id": 8749,
+      "firstName": "",
+      "lastName": "",
+      "email": "",
+      "password": "",
+      "admin": false
+    },
+    {
+      "id": 371,
+      "firstName": "",
+      "lastName": "",
+      "email": "",
+      "password": "",
       "admin": false
     }
   ],
