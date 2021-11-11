@@ -1,5 +1,7 @@
 # ProjectS
 
+Demo View : https://tahaebaed.github.io/Project-S-eCommrce-Project/Project-S-eCommrce-Project/Home
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.11.
 
 ## Development server
